@@ -18,6 +18,8 @@ public class dos extends Activity implements OnTouchListener {
 	TextView mensaje;
 	int corx, cory;
 	Lienzo fondo;
+	String colorFondo;
+	String dibujar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +28,41 @@ public class dos extends Activity implements OnTouchListener {
 		setContentView(R.layout.activity2);
 		
 		/*Cosas de posicion*/
-		corx = 100;
-        cory = 100;
+		corx = -10;
+        cory = -10;
+        Bundle m1=getIntent().getExtras();
+        
+        if (m1.getString("background").equals("Azul"))
+			{colorFondo="Azul";}
+	    else if (m1.getString("background").equals("Rojo"))
+	        {colorFondo="Rojo";}
+	    else if (m1.getString("background").equals("Amarillo"))
+	    	{colorFondo="Amarillo";}
+	    else if (m1.getString("background").equals("Verde"))
+	    	{colorFondo="Verde";}
+	    else
+	    	colorFondo="White";
+        
+        if (m1.getBoolean("figCirculo"))
+			{dibujar="Circulo";}
+	    else if (m1.getBoolean("figRectangulo"))
+	        {dibujar="Rectangulo";}
+	    else if (m1.getBoolean("figPunto"))
+	    	{dibujar="Punto";}
+	    else if (m1.getBoolean("figImagen"))
+	    	{dibujar="Imagen";}
+	    else
+	    	dibujar="White";
+        
         RelativeLayout layout1=(RelativeLayout) findViewById(R.id.r1);
         fondo = new Lienzo(this);
         fondo.setOnTouchListener(this);
         layout1.addView(fondo);
         
-		/*Cosas de texto
-		mensaje=(TextView) findViewById(R.id.mensaje);*/
-		
-		Bundle m1=getIntent().getExtras();
-		
+		/*Cosas de texto*/
+        /*mensaje=(TextView) findViewById(R.id.mensaje);*/
+
+		/*mensaje.setText(m1.getString("background"));*/
 		/*
 		 * m1.getBoolean("figura")
 		 * m1.getBoolean("texto")
@@ -55,24 +80,25 @@ public class dos extends Activity implements OnTouchListener {
 		 * mensaje.setBackgroundColor(Color.BLUE);
 		 * mensaje.setTextColor(Color.YELLOW);
 		 * mensaje.setText(m1.getString("textoEscrito"));
+		 * 
+		 * 
+		 * if(m1.getBoolean("figCirculo"))
+			{
+				canvas.drawARGB(255, 255, 0, 0);
+			}
+			else if(m1.getBoolean("figRectangulo"))
+			{
+				canvas.drawARGB(255, 255, 0, 0);
+			}
+			else if(m1.getBoolean("figPunto"))
+			{
+				canvas.drawARGB(255, 255, 0, 0);
+			}
+			else if(m1.getBoolean("figImagen"))
+			{
+				canvas.drawARGB(255, 255, 0, 0);
+			}
 		 */
-		
-		if(m1.getBoolean("figCirculo"))
-		{
-			mensaje.setText("Circulo");
-		}
-		else if(m1.getBoolean("figRectangulo"))
-		{
-			mensaje.setText("Rectangulo");
-		}
-		else if(m1.getBoolean("figPunto"))
-		{
-			mensaje.setText("Punto");
-		}
-		else if(m1.getBoolean("figImagen"))
-		{
-			mensaje.setText("Imagen");
-		}
 		
 	}
 	
@@ -94,12 +120,61 @@ public class dos extends Activity implements OnTouchListener {
 		
 		protected void onDraw(Canvas canvas)
 		{
-			canvas.drawARGB(200+cory, 255-corx, 255, 0);
+			/*Bundle m1=getIntent().getExtras();*/
+			/*String fondo=(String)m1.getString("background");*/
 			
-			Paint pincel = new Paint();
-			pincel.setARGB(255, 255, 100, 20);
-			//pincel.setStrokeWidth(4);
-			canvas.drawCircle(corx, cory, 15, pincel);
+			/*mensaje.setText(colorFondo);*/
+			
+			/* Colores de fondo */
+			if (colorFondo == "Azul")
+				{canvas.drawARGB(255, 0, 0, 255);}
+	        else if (colorFondo == "Rojo")
+	            {canvas.drawARGB(255, 255, 0, 0);}
+            else if (colorFondo == "Amarillo")
+            	{canvas.drawARGB(255, 255, 255, 0);}
+            else if (colorFondo == "Verde")
+            	{canvas.drawARGB(255, 0, 255, 0);}
+            else 
+            	{canvas.drawARGB(255, 255, 255, 255);}		
+			
+			/* Figura a dibujar */
+			if (dibujar == "Circulo")
+			{
+				Paint pincel = new Paint();
+				pincel.setARGB(255, 255, 100, 20);
+				pincel.setStrokeWidth(4);
+				canvas.drawCircle(corx, cory, 15, pincel);
+			}
+	        else if (dibujar == "Rectangulo")
+            {
+	        	Paint pincel = new Paint();
+				pincel.setARGB(255, 255, 100, 20);
+				pincel.setStrokeWidth(4);
+				canvas.drawCircle(corx, cory, 15, pincel);
+            }
+	        else if (dibujar == "Punto")
+        	{
+	        	Paint pincel = new Paint();
+				pincel.setARGB(255, 255, 100, 20);
+				pincel.setStrokeWidth(4);
+				canvas.drawCircle(corx, cory, 15, pincel);
+        	}
+	        else if (dibujar == "Imagen")
+        	{
+	        	Paint pincel = new Paint();
+				pincel.setARGB(255, 255, 100, 20);
+				pincel.setStrokeWidth(4);
+				canvas.drawCircle(corx, cory, 15, pincel);
+        	}
+	        else 
+        	{
+	        	Paint pincel = new Paint();
+				pincel.setARGB(255, 255, 100, 20);
+				pincel.setStrokeWidth(4);
+				canvas.drawCircle(corx, cory, 15, pincel);
+        	}
+			
+
 		}
     	
     }
