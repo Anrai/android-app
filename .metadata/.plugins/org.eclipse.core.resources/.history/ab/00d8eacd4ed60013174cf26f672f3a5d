@@ -1,0 +1,40 @@
+package example.ejercicios;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Spinner;
+
+public class MainActivity extends Activity {
+EditText textoEscrito;
+RadioButton figura;
+RadioButton texto;
+Spinner background;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        textoEscrito=(EditText) findViewById(R.id.textoEscrito);
+        figura=(RadioButton) findViewById(R.id.figura);
+        texto=(RadioButton) findViewById(R.id.texto);
+        background=(Spinner) findViewById(R.id.background);
+        
+        String []opciones={"Azul", "Rojo", "Amarillo", "Verde"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones);
+        spinner1.setAdapter(adapter);    }
+    }
+    
+    public void enviar(View v) // View es para un metodo click
+    {   	
+    	Intent i=new Intent(this,dos.class);
+    	i.putExtra("textoEscrito", textoEscrito.getText().toString());
+    	i.putExtra("figura", figura.isChecked());
+    	i.putExtra("texto", texto.isChecked());
+    	startActivity(i);
+    }
+    
+}

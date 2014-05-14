@@ -1,0 +1,31 @@
+package example.ejercicios;
+
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class dos extends Activity {
+TextView mensaje;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity2);
+		mensaje=(TextView) findViewById(R.id.mensaje);
+		
+		Bundle m1=getIntent().getExtras();
+		
+		
+		if(m1.getBoolean("figura"))
+		{
+			mensaje.setText(m1.getString("graficacion"));
+		}
+		
+		mensaje.setBackgroundColor(Color.BLUE);
+		mensaje.setTextColor(Color.YELLOW);
+		//mensaje.setText(m1.getString("nombre")+" "+m1.getString("apellido"));
+		//mensaje.setText(m1.getString("graficacion"));
+	}
+
+}
