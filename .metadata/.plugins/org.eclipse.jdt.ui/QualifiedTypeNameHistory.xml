@@ -4,9 +4,9 @@
 <fullyQualifiedTypeName name="android.R.layout"/>
 <fullyQualifiedTypeName name="android.graphics.Color"/>
 <fullyQualifiedTypeName name="android.widget.RadioButton"/>
-<fullyQualifiedTypeName name="example.ejercicios.R.id"/>
 <fullyQualifiedTypeName name="android.widget.Spinner"/>
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="android.view.Menu"/>
 <fullyQualifiedTypeName name="android.widget.CheckBox"/>
+<fullyQualifiedTypeName name="example.ejercicios.R.id"/>
 </qualifiedTypeNameHistroy>
