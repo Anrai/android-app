@@ -34,7 +34,7 @@ public final class R {
         public static final int figPunto=0x7f08000d;
         public static final int figRectangulo=0x7f08000c;
         public static final int figura=0x7f080002;
-        public static final int mensaje=0x7f080000;
+        public static final int r1=0x7f080000;
         public static final int radioGroup1=0x7f080001;
         public static final int textView1=0x7f080006;
         public static final int textView2=0x7f080008;

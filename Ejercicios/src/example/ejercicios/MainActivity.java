@@ -56,6 +56,10 @@ public class MainActivity extends Activity {
     	i.putExtra("textoEscrito", textoEscrito.getText().toString());
     	i.putExtra("figura", figura.isChecked());
     	i.putExtra("texto", texto.isChecked());
+    	i.putExtra("figCirculo", figCirculo.isChecked());
+    	i.putExtra("figRectangulo", figRectangulo.isChecked());
+    	i.putExtra("figPunto", figPunto.isChecked());
+    	i.putExtra("figImagen", figImagen.isChecked());
     	i.putExtra("background", background.getSelectedItem().toString());
     	i.putExtra("color", color.getSelectedItem().toString());
     	startActivity(i);

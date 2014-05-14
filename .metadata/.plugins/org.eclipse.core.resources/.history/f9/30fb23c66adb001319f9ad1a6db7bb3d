@@ -1,0 +1,58 @@
+package example.ejercicios;
+
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class dos extends Activity {
+TextView mensaje;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity2);
+		mensaje=(TextView) findViewById(R.id.mensaje);
+		
+		Bundle m1=getIntent().getExtras();
+		
+		/*
+		 * m1.getBoolean("figura")
+		 * m1.getBoolean("texto")
+		 * 
+		 * m1.getString("textoEscrito");
+		 * 
+		 * m1.getString("background");
+		 * m1.getString("color");
+		 * 
+		 * m1.getBoolean("figCirculo")
+		 * m1.getBoolean("figRectangulo")
+		 * m1.getBoolean("figImagen")
+		 * m1.getBoolean("figPunto")
+		 * 
+		 * mensaje.setBackgroundColor(Color.BLUE);
+		 * mensaje.setTextColor(Color.YELLOW);
+		 * mensaje.setText(m1.getString("textoEscrito"));
+		 */
+		
+		if(m1.getBoolean("figCirculo"))
+		{
+			mensaje.setText("Circulo");
+		}
+		else if(m1.getBoolean("figRectangulo"))
+		{
+			mensaje.setText("Rectangulo");
+		}
+		else if(m1.getBoolean("figPunto"))
+		{
+			mensaje.setText("Punto");
+		}
+		else if(m1.getBoolean("figImagen"))
+		{
+			mensaje.setText("Imagen");
+		}
+		
+		
+	}
+
+}
